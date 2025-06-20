@@ -1,31 +1,26 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
-  --primary: #ff7e5f;
-  --primary-dark: #eb5e41;
-  --accent: #0ba360;
-  --light-bg: #f8f9fa;
-  --text-color: #2d2d2d;
+  --bg: #121212;
+  --card: #1f1f1f;
+  --primary: #ff9800;
+  --primary-dark: #e68900;
+  --accent: #4caf50;
+  --text: #f4f4f4;
+  --muted: #aaaaaa;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   --radius: 12px;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  --transition: all 0.3s ease;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #fff0f0, #f9f9ff);
-  color: var(--text-color);
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
   padding: 2rem;
-  min-height: 100vh;
 }
 
 .container {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .hero {
@@ -34,93 +29,96 @@ body {
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: var(--primary);
-  margin-bottom: 0.5rem;
 }
 
 .subheading {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--muted);
 }
 
 .search-card {
+  background-color: var(--card);
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 1rem;
-  background: white;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .search-card input {
   flex: 1;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border: none;
   border-radius: var(--radius);
   font-size: 1rem;
-  transition: var(--transition);
+  background: #333;
+  color: var(--text);
 }
 
 .search-card input:focus {
-  border-color: var(--primary);
-  outline: none;
+  outline: 2px solid var(--primary);
 }
 
 .search-card button {
-  padding: 10px 15px;
-  background-color: var(--primary);
+  background: var(--primary);
+  color: black;
   border: none;
+  padding: 0.75rem 1rem;
   border-radius: var(--radius);
-  color: white;
-  font-size: 1.1rem;
   cursor: pointer;
-  transition: var(--transition);
+  transition: 0.3s ease;
 }
 
 .search-card button:hover {
-  background-color: var(--primary-dark);
+  background: var(--primary-dark);
 }
 
 .info-bar {
   text-align: center;
   font-size: 0.9rem;
-  color: #888;
   margin-bottom: 1.5rem;
+  color: var(--muted);
 }
 
 .info-bar a {
   color: var(--primary);
   text-decoration: none;
-  font-weight: 500;
+}
+
+.error {
+  background: #ff1744;
+  color: white;
+  padding: 1rem;
+  border-radius: var(--radius);
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .meals-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
 .meal {
-  background: white;
+  background: var(--card);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: var(--transition);
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .meal:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: scale(1.03);
 }
 
 .meal img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
 }
 
@@ -131,139 +129,116 @@ body {
 
 .meal-title {
   font-size: 1.2rem;
-  color: var(--primary-dark);
-  margin-bottom: 0.5rem;
+  color: var(--primary);
 }
 
 .meal-category {
-  background-color: var(--light-bg);
+  background-color: var(--bg);
+  color: var(--accent);
+  font-size: 0.8rem;
   padding: 5px 10px;
   border-radius: 20px;
-  font-size: 0.8rem;
-  color: var(--accent);
+  margin-top: 0.5rem;
+  display: inline-block;
 }
 
 #meal-details {
-  background-color: white;
-  padding: 2rem;
-  margin-top: 2rem;
+  background-color: var(--card);
   border-radius: var(--radius);
+  padding: 2rem;
   box-shadow: var(--shadow);
+  margin-top: 2rem;
 }
 
 .btn-back {
   background: transparent;
   border: 1px solid var(--primary);
   color: var(--primary);
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: var(--radius);
+  margin-bottom: 1rem;
   cursor: pointer;
-  margin-bottom: 1.5rem;
 }
 
 .btn-back:hover {
   background: var(--primary);
-  color: white;
+  color: black;
 }
 
 .meal-details-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 .meal-details-img {
   width: 100%;
   max-width: 400px;
   border-radius: var(--radius);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .meal-details-title {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
   color: var(--primary);
-  text-align: center;
 }
 
 .meal-details-category span {
-  background-color: var(--light-bg);
-  padding: 5px 12px;
-  border-radius: 20px;
   color: var(--accent);
+  font-size: 1rem;
 }
 
 .meal-details-instructions {
+  text-align: left;
+  margin: 1rem auto;
   max-width: 700px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  text-align: justify;
   line-height: 1.6;
 }
 
 .ingredients-list {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 10px;
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
+  margin-top: 1rem;
 }
 
 .ingredients-list li {
-  background: var(--light-bg);
+  background: #333;
   padding: 10px;
   border-radius: var(--radius);
   display: flex;
   align-items: center;
-  font-size: 0.95rem;
 }
 
 .ingredients-list i {
-  margin-right: 8px;
   color: var(--accent);
+  margin-right: 8px;
 }
 
 .youtube-link {
   background: #ff0000;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 16px;
   border-radius: var(--radius);
   text-decoration: none;
-  font-weight: 500;
-  display: inline-block;
   margin-top: 1rem;
+  display: inline-block;
 }
 
-.youtube-link i {
-  margin-right: 8px;
-}
-
-.error {
-  color: #b30000;
-  background-color: #ffe6e6;
-  border: 1px solid #ff7e5f;
-  padding: 1rem;
+.footer {
   text-align: center;
-  border-radius: var(--radius);
-  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
-.hidden {
-  display: none;
+.footer a {
+  color: var(--primary);
+  text-decoration: none;
 }
 
-@media (max-width: 600px) {
-  .search-card {
-    flex-direction: column;
-  }
-
-  .search-card input,
-  .search-card button {
-    width: 100%;
-  }
-
-  .ingredients-list {
-    grid-template-columns: 1fr;
-  }
+hr {
+  margin: 1rem 0;
+  border: none;
+  height: 1px;
+  background-color: #333;
 }
