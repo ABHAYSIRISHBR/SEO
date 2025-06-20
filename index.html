@@ -3,43 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Finder App</title>
+    <title>🌟 Recipe Genie | Find & Explore Meals</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1><i class="fas fa-utensils"></i> Recipe Finder</h1>
-        <p>Find delicious recipes from around the world</p>
+      <header class="hero">
+        <h1><i class="fas fa-hat-chef"></i> Recipe Genie</h1>
+        <p class="subheading">Find magical recipes from around the globe 🌍</p>
       </header>
 
-      <p class="api-link">Data from <a href="https://www.themealdb.com/api.php">TheMealDB 🧑‍🍳</a></p>
-
-      <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search for meals or keywords" />
-        <button id="search-btn">Search</button>
+      <div class="search-card">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search meals like 'Chicken Biryani'..."
+          aria-label="Search for meals"
+        />
+        <button id="search-btn" title="Search recipes">
+          <i class="fas fa-search"></i>
+        </button>
       </div>
 
-      <div id="error-container" class="hidden">
-        <p>No meals found. Try another search term!</p>
+      <div class="info-bar">
+        <span>📄 Powered by <a href="https://www.themealdb.com/api.php" target="_blank">TheMealDB</a></span>
       </div>
+
+      <div id="error-container" class="error hidden"></div>
 
       <div id="result-heading"></div>
 
-      <div id="meals" class="meals-container"></div>
+      <section id="meals" class="meals-container"></section>
 
-      <div id="meal-details" class="hidden">
-        <button id="back-btn"><i class="fas fa-arrow-left"></i> Back to recipes</button>
-
+      <section id="meal-details" class="hidden">
+        <button id="back-btn" class="btn-back">
+          <i class="fas fa-arrow-left"></i> Recipes
+        </button>
         <div class="meal-details-content"></div>
-      </div>
+      </section>
     </div>
 
     <script src="script.js"></script>
