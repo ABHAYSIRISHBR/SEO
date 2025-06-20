@@ -19,11 +19,9 @@ searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") searchMeals();
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    document.body.classList.add("loaded");
-  }, 100);
-});
+function toggleTheme() {
+  document.body.classList.toggle("day-mode");
+}
 
 async function searchMeals() {
   const searchTerm = searchInput.value.trim();
@@ -43,7 +41,6 @@ async function searchMeals() {
 
     if (data.meals === null) {
       resultHeading.textContent = "";
-      mealsContainer.innerHTML = "";
       errorContainer.textContent = `No recipes found for "${searchTerm}". Try another search!`;
       errorContainer.classList.remove("hidden");
     } else {
@@ -52,7 +49,7 @@ async function searchMeals() {
       searchInput.value = "";
     }
   } catch (error) {
-    errorContainer.textContent = "Something went wrong. Try again later.";
+    errorContainer.textContent = "Something went wrong. Please try again later.";
     errorContainer.classList.remove("hidden");
   }
 }
@@ -62,7 +59,7 @@ function displayMeals(meals) {
   meals.forEach((meal) => {
     mealsContainer.innerHTML += `
       <div class="meal" data-meal-id="${meal.idMeal}">
-        <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+        <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
         <div class="meal-info">
           <h3 class="meal-title">${meal.strMeal}</h3>
           ${meal.strCategory ? `<div class="meal-category">${meal.strCategory}</div>` : ""}
@@ -77,15 +74,17 @@ async function handleMealClick(e) {
   if (!mealEl) return;
 
   const mealId = mealEl.getAttribute("data-meal-id");
+
   try {
     const response = await fetch(`${LOOKUP_URL}${mealId}`);
     const data = await response.json();
 
     if (data.meals && data.meals[0]) {
       const meal = data.meals[0];
+
       const ingredients = [];
       for (let i = 1; i <= 20; i++) {
-        if (meal[`strIngredient${i}`]) {
+        if (meal[`strIngredient${i}`] && meal[`strIngredient${i}`].trim() !== "") {
           ingredients.push({
             ingredient: meal[`strIngredient${i}`],
             measure: meal[`strMeasure${i}`],
@@ -106,22 +105,10 @@ async function handleMealClick(e) {
         <div class="meal-details-ingredients">
           <h3>Ingredients</h3>
           <ul class="ingredients-list">
-            ${ingredients
-              .map(
-                (item) => `
-                  <li><i class="fas fa-check-circle"></i> ${item.measure} ${item.ingredient}</li>
-                `
-              )
-              .join("")}
+            ${ingredients.map(item => `<li><i class="fas fa-check-circle"></i> ${item.measure} ${item.ingredient}</li>`).join('')}
           </ul>
         </div>
-        ${
-          meal.strYoutube
-            ? `<a href="${meal.strYoutube}" target="_blank" class="youtube-link">
-                <i class="fab fa-youtube"></i> Watch Video
-              </a>`
-            : ""
-        }
+        ${meal.strYoutube ? `<a href="${meal.strYoutube}" target="_blank" class="youtube-link"><i class="fab fa-youtube"></i> Watch Video</a>` : ""}
       `;
 
       mealDetails.classList.remove("hidden");
