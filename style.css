@@ -1,3 +1,4 @@
+/* === Variables === */
 :root {
   --bg: #121212;
   --card: #1f1f1f;
@@ -10,12 +11,28 @@
   --radius: 12px;
 }
 
+/* === Animated Background === */
 body {
-  background-color: var(--bg);
+  background: linear-gradient(-45deg, #1f1f1f, #2a2a2a, #1f1f1f, #000);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   color: var(--text);
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.6;
   padding: 2rem;
+  min-height: 100vh;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container {
@@ -36,6 +53,20 @@ body {
 .subheading {
   font-size: 1.2rem;
   color: var(--muted);
+}
+
+.description {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.tagline {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: bold;
+  font-style: italic;
 }
 
 .search-card {
@@ -110,6 +141,8 @@ body {
   box-shadow: var(--shadow);
   cursor: pointer;
   transition: transform 0.3s ease;
+  opacity: 0;
+  animation: popIn 0.4s ease forwards;
 }
 
 .meal:hover {
@@ -242,6 +275,7 @@ hr {
   height: 1px;
   background-color: #333;
 }
+
 /* === Animations === */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -259,34 +293,17 @@ hr {
   100% { transform: translateY(0); }
 }
 
-/* Fade-in for sections */
-.hero, .search-card, .info-bar, .footer {
-  animation: fadeIn 1s ease forwards;
-  opacity: 0;
-}
-
-.container {
-  animation-delay: 0.3s;
-}
-
-/* Pop animation for meals */
-.meal {
-  animation: popIn 0.4s ease forwards;
-  opacity: 0;
-}
-
-/* Floating animation for logo icon */
-.hero h1 i {
+.float {
   display: inline-block;
   animation: float 2.5s ease-in-out infinite;
 }
 
-/* Trigger animations on load */
-body.loaded .hero,
-body.loaded .search-card,
-body.loaded .info-bar,
-body.loaded .footer,
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+body.loaded .fade-in,
 body.loaded .meal {
   opacity: 1;
 }
-
