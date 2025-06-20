@@ -34,21 +34,6 @@ body.day-mode {
   color: var(--text);
 }
 
-.emoji-float {
-  position: fixed;
-  font-size: 2rem;
-  opacity: 0.5;
-  animation: floatEmoji 20s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes floatEmoji {
-  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-  50% { opacity: 0.4; }
-  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-}
-
 .toggle-theme {
   position: fixed;
   top: 1rem;
