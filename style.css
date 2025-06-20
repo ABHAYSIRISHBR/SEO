@@ -4,122 +4,118 @@
   box-sizing: border-box;
 }
 
-/* Color Palette */
 :root {
   --primary: #ff7e5f;
   --primary-dark: #eb5e41;
-  --primary-light: #ffb199;
-  --secondary: #0ba360;
-  --text-dark: #333333;
-  --text-light: #f8f9fa;
-  --background: #ffffff;
-  --background-light: #f8f9fa;
-  --card-bg: #ffffff;
-  --border-radius: 8px;
-  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --accent: #0ba360;
+  --light-bg: #f8f9fa;
+  --text-color: #2d2d2d;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --transition: all 0.3s ease;
 }
 
 body {
-  font-family: sans-serif;
-  background-color: var(--background-light);
-  color: var(--text-dark);
-  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #fff0f0, #f9f9ff);
+  color: var(--text-color);
+  padding: 2rem;
+  min-height: 100vh;
 }
 
 .container {
-  width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1rem;
 }
 
-header {
+.hero {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-h1 {
-  font-size: 2.2rem;
+.hero h1 {
+  font-size: 2.8rem;
   color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
-h1 i {
-  margin-right: 10px;
+.subheading {
+  font-size: 1.2rem;
+  color: #666;
 }
 
-header p {
-  color: var(--text-dark);
-  opacity: 0.7;
-}
-
-.search-container {
+.search-card {
   display: flex;
-  margin-bottom: 2rem;
-  gap: 10px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
 }
 
-input[type="text"] {
+.search-card input {
   flex: 1;
-  padding: 10px 16px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
   font-size: 1rem;
-  border-radius: var(--border-radius);
-  border: 1px solid #ddd;
-  background-color: var(--background);
-  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.search-card input:focus {
+  border-color: var(--primary);
   outline: none;
 }
 
-input[type="text"]:focus {
-  border-color: var(--primary);
-}
-
-button {
+.search-card button {
+  padding: 10px 15px;
   background-color: var(--primary);
-  color: white;
   border: none;
-  border-radius: var(--border-radius);
-  padding: 0 20px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: var(--radius);
+  color: white;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: var(--transition);
 }
 
-button:hover {
+.search-card button:hover {
   background-color: var(--primary-dark);
 }
 
-#result-heading {
+.info-bar {
   text-align: center;
+  font-size: 0.9rem;
+  color: #888;
   margin-bottom: 1.5rem;
-  font-size: 1.2rem;
-  color: var(--text-dark);
+}
+
+.info-bar a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .meals-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
 .meal {
-  background-color: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  background: white;
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow);
   transition: var(--transition);
   cursor: pointer;
-  position: relative;
 }
 
 .meal:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .meal img {
@@ -130,42 +126,43 @@ button:hover {
 
 .meal-info {
   padding: 1rem;
+  text-align: center;
 }
 
 .meal-title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  color: var(--primary-dark);
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
 }
 
 .meal-category {
-  display: inline-block;
-  background-color: var(--primary-light);
-  color: var(--text-dark);
-  padding: 3px 8px;
-  font-size: 0.8rem;
+  background-color: var(--light-bg);
+  padding: 5px 10px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  font-size: 0.8rem;
+  color: var(--accent);
 }
 
 #meal-details {
-  background-color: var(--background);
-  border-radius: var(--border-radius);
+  background-color: white;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 1.5rem;
-  margin: 2rem 0;
 }
 
-#back-btn {
-  margin-bottom: 1.5rem;
-  background-color: transparent;
-  color: var(--primary);
+.btn-back {
+  background: transparent;
   border: 1px solid var(--primary);
+  color: var(--primary);
   padding: 8px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-bottom: 1.5rem;
 }
 
-#back-btn:hover {
-  background-color: var(--primary);
+.btn-back:hover {
+  background: var(--primary);
   color: white;
 }
 
@@ -178,98 +175,78 @@ button:hover {
 .meal-details-img {
   width: 100%;
   max-width: 400px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius);
   margin-bottom: 1.5rem;
 }
 
 .meal-details-title {
-  font-size: 1.8rem;
-  color: var(--primary);
+  font-size: 2rem;
   margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.meal-details-category {
-  margin-bottom: 1rem;
+  color: var(--primary);
   text-align: center;
 }
 
 .meal-details-category span {
-  background-color: var(--primary-light);
-  padding: 4px 12px;
+  background-color: var(--light-bg);
+  padding: 5px 12px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  color: var(--accent);
 }
 
 .meal-details-instructions {
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.meal-details-instructions h3 {
-  margin-bottom: 0.5rem;
+  max-width: 700px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: justify;
+  line-height: 1.6;
 }
 
 .ingredients-list {
-  list-style-type: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 8px;
-  margin-bottom: 1.5rem;
-  width: 100%;
+  gap: 10px;
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
 }
 
 .ingredients-list li {
+  background: var(--light-bg);
+  padding: 10px;
+  border-radius: var(--radius);
   display: flex;
   align-items: center;
-  padding: 6px 10px;
-  background-color: var(--background-light);
-  border-radius: var(--border-radius);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
-.ingredients-list li i {
-  color: var(--secondary);
+.ingredients-list i {
   margin-right: 8px;
+  color: var(--accent);
 }
 
 .youtube-link {
-  display: inline-block;
-  background-color: #ff0000;
+  background: #ff0000;
   color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
+  display: inline-block;
   margin-top: 1rem;
-  font-size: 0.9rem;
 }
 
 .youtube-link i {
   margin-right: 8px;
 }
 
-#error-container {
-  background-color: rgba(255, 126, 95, 0.1);
-  border: 1px solid var(--primary);
-  color: var(--primary-dark);
+.error {
+  color: #b30000;
+  background-color: #ffe6e6;
+  border: 1px solid #ff7e5f;
   padding: 1rem;
-  border-radius: var(--border-radius);
   text-align: center;
+  border-radius: var(--radius);
   margin-bottom: 1.5rem;
-}
-
-.api-link {
-  text-align: center;
-  padding-bottom: 1.5rem;
-  color: var(--text-dark);
-  opacity: 0.7;
-  font-size: 0.9rem;
-}
-
-.api-link a {
-  color: var(--primary);
-  text-decoration: none;
 }
 
 .hidden {
@@ -277,21 +254,13 @@ button:hover {
 }
 
 @media (max-width: 600px) {
-  .search-container {
+  .search-card {
     flex-direction: column;
   }
 
-  button#search-btn {
+  .search-card input,
+  .search-card button {
     width: 100%;
-    padding: 10px;
-  }
-
-  .meals-container {
-    grid-template-columns: 1fr;
-  }
-
-  .meal-details-img {
-    max-width: 100%;
   }
 
   .ingredients-list {
