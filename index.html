@@ -3,15 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <header class="hero">
-  <h1><i class="fas fa-burger"></i> WEBSITE FOODIES</h1>
-  <p class="subheading">Your personal flavor-hunting assistant 🍳</p>
-  <p class="description">
-    Discover tasty recipes, master the art of cooking from scratch, and find perfect step-by-step videos to become your family's favorite chef! 🎬🍝
-  </p>
-  <p class="tagline">"Learn it online, plate it just fine — bring the recipe to real-time!"</p>
-</header>
-
+    <title>WEBSITE FOODIES | Learn it online, plate it just fine — bring the recipe to real-time!</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -22,24 +14,32 @@
   </head>
   <body>
     <div class="container">
-      <header class="hero">
-        <h1><i class="fas fa-burger"></i> WEBSITE FOODIES</h1>
-        <p class="subheading">Find magical meals, one bite at a time 😋</p>
+      <header class="hero fade-in">
+        <h1><i class="fas fa-burger float"></i> WEBSITE FOODIES</h1>
+        <p class="subheading">Your personal flavor-hunting assistant 🍳</p>
+        <p class="description">
+          Discover tasty recipes, master the art of cooking from scratch, and find perfect step-by-step videos to become your family's favorite chef! 🎮🍝
+        </p>
+        <p class="tagline">
+          "Learn it online, plate it just fine — bring the recipe to real-time!"
+        </p>
       </header>
 
-      <div class="search-card">
+      <div class="search-card fade-in">
         <input
           type="text"
           id="search-input"
-          placeholder="Hungry? Try 'soup', 'egg' or 'chicken'..."
+          placeholder="Hungry? Try 'pasta', 'biryani' or 'tacos'..."
         />
         <button id="search-btn" title="Search">
           <i class="fas fa-search"></i>
         </button>
       </div>
 
-      <div class="info-bar">
-        <span>🧑‍🍳 Recipes from <a href="https://www.themealdb.com/api.php" target="_blank">TheMealDB</a></span>
+      <div class="info-bar fade-in">
+        <span>🧑‍🍳 Recipes from
+          <a href="https://www.themealdb.com/api.php" target="_blank">TheMealDB</a></span
+        >
       </div>
 
       <div id="error-container" class="error hidden"></div>
@@ -53,20 +53,28 @@
         <div class="meal-details-content"></div>
       </section>
 
-      <footer class="footer">
+      <footer class="footer fade-in">
         <p>🍕 “Good food = Good mood” — Your stomach’s best friend 🍔</p>
-        <p>🥗 “Don't go bacon my heart!” 🥓</p>
+        <p>🥗 “Don't go bacon my heart!” 🍓</p>
         <hr />
         <p class="developer-credit">
           Made with ❤️ by <strong>ABHAY SIRISH B.R (for SEO/Digital Marketing - Testing/learning) </strong><br />
           📧 <a href="mailto:your@email.com">abhaysirish1@gmail.com</a> |
           📸 <a href="https://instagram.com/yourhandle" target="_blank">abhay_sirish_b_r</a> |
           💼 <a href="https://linkedin.com/in/yourhandle" target="_blank">ABHAY SIRISH B.R</a> |
-          🐦 <a href="https://x.com/yourhandle" target="_blank">ABHAY_SIRISH_BR</a> |
+          🕊️ <a href="https://x.com/yourhandle" target="_blank">ABHAY_SIRISH_BR</a> |
           📘 <a href="https://facebook.com/yourhandle" target="_blank">ABHAY SIRISH B.R</a>
         </p>
       </footer>
     </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          document.body.classList.add("loaded");
+        }, 100);
+      });
+    </script>
 
     <script src="script.js"></script>
   </body>
