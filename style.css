@@ -93,16 +93,18 @@ body.day-mode {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .search-card input {
-  flex: 1;
+  flex: 1 1 250px;
   padding: 0.75rem;
   border: none;
   border-radius: var(--radius);
   font-size: 1rem;
   background: #333;
   color: var(--text);
+  min-width: 200px;
 }
 
 body.day-mode .search-card input {
@@ -122,6 +124,7 @@ body.day-mode .search-card input {
   border-radius: var(--radius);
   cursor: pointer;
   transition: 0.3s ease;
+  flex-shrink: 0;
 }
 
 .search-card button:hover {
@@ -332,4 +335,55 @@ hr {
 body.loaded .fade-in,
 body.loaded .meal {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .search-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-card button {
+    width: 100%;
+  }
+
+  .meal-details-title {
+    font-size: 1.6rem;
+  }
+
+  .youtube-link {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .search-card input,
+  .search-card button {
+    font-size: 0.9rem;
+  }
+
+  .meal-title {
+    font-size: 1rem;
+  }
+
+  .meal-details-title {
+    font-size: 1.4rem;
+  }
 }
