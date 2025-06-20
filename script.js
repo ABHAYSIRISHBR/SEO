@@ -113,3 +113,10 @@ function displayMealDetails(meal) {
   mealDetails.classList.remove("hidden");
   mealDetails.scrollIntoView({ behavior: "smooth" });
 }
+
+// Add loaded class after a short delay to trigger animations
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.body.classList.add("loaded");
+  }, 100); // small delay for smoothness
+});
