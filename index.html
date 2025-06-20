@@ -3,74 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WEBSITE FOODIES | Learn it online, plate it just fine — bring the recipe to real-time!</title>
+    <meta name="description" content="Discover, cook, and master new recipes. Learn online, spice it offline.">
+    <title>WEBSITE FOODIES</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
   </head>
   <body>
+    <!-- Theme Toggle Button -->
+    <button class="toggle-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
+    <!-- Floating Food Emojis -->
+    <div class="emoji-float" style="left: 5%;">🍕</div>
+    <div class="emoji-float" style="left: 15%;">🥑</div>
+    <div class="emoji-float" style="left: 25%;">🍜</div>
+    <div class="emoji-float" style="left: 35%;">🍩</div>
+    <div class="emoji-float" style="left: 45%;">🍣</div>
+    <div class="emoji-float" style="left: 55%;">🍔</div>
+    <div class="emoji-float" style="left: 65%;">🍰</div>
+    <div class="emoji-float" style="left: 75%;">🥘</div>
+    <div class="emoji-float" style="left: 85%;">🧁</div>
+
     <div class="container">
       <header class="hero fade-in">
-        <h1><i class="fas fa-burger float"></i> WEBSITE FOODIES</h1>
-        <p class="subheading">Your personal flavor-hunting assistant 🍳</p>
-        <p class="description">
-          Discover tasty recipes, master the art of cooking from scratch, and find perfect step-by-step videos to become your family's favorite chef! 🎮🍝
-        </p>
-        <p class="tagline">
-          "Learn it online, plate it just fine — bring the recipe to real-time!"
-        </p>
+        <h1><i class="fas fa-utensils"></i> WEBSITE FOODIES</h1>
+        <p class="subheading">Find mouth-watering recipes, learn to cook like a pro, and follow perfect video tutorials – all in one spot!</p>
+        <p class="tagline">✨ Learn Online, Spice It Offline ✨</p>
       </header>
 
-      <div class="search-card fade-in">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Hungry? Try 'pasta', 'biryani' or 'tacos'..."
-        />
-        <button id="search-btn" title="Search">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
+      <p class="info-bar">Recipes powered by <a href="https://www.themealdb.com/api.php" target="_blank">TheMealDB 🍳</a></p>
 
-      <div class="info-bar fade-in">
-        <span>🧑‍🍳 Recipes from
-          <a href="https://www.themealdb.com/api.php" target="_blank">TheMealDB</a></span
-        >
+      <div class="search-card fade-in">
+        <input type="text" id="search-input" placeholder="Search for meals or ingredients..." />
+        <button id="search-btn">Search</button>
       </div>
 
       <div id="error-container" class="error hidden"></div>
+
       <div id="result-heading"></div>
-      <section id="meals" class="meals-container"></section>
 
-      <section id="meal-details" class="hidden">
-        <button id="back-btn" class="btn-back">
-          <i class="fas fa-arrow-left"></i> Back
-        </button>
+      <div id="meals" class="meals-container"></div>
+
+      <div id="meal-details" class="hidden">
+        <button id="back-btn" class="btn-back"><i class="fas fa-arrow-left"></i> Back to recipes</button>
         <div class="meal-details-content"></div>
-      </section>
+      </div>
 
-      <footer class="footer fade-in">
-        <p>🍕 “Good food = Good mood” — Your stomach’s best friend 🍔</p>
-        <p>🥗 “Don't go bacon my heart!” 🍓</p>
+      <footer class="footer">
         <hr />
-        <p class="developer-credit">
-          Made with ❤️ by <strong>ABHAY SIRISH B.R (for SEO/Digital Marketing - Testing/learning) </strong><br />
-          📧 <a href="mailto:your@email.com">abhaysirish1@gmail.com</a>
-        </p>
+        Made with ❤️ by <strong>ABHAY SIRISH B.R.</strong><br />
+        📧 abhaysirish1@gmail.com |
       </footer>
     </div>
-
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-          document.body.classList.add("loaded");
-        }, 100);
-      });
-    </script>
 
     <script src="script.js"></script>
   </body>
