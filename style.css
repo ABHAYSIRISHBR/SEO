@@ -242,3 +242,51 @@ hr {
   height: 1px;
   background-color: #333;
 }
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* Fade-in for sections */
+.hero, .search-card, .info-bar, .footer {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+.container {
+  animation-delay: 0.3s;
+}
+
+/* Pop animation for meals */
+.meal {
+  animation: popIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+/* Floating animation for logo icon */
+.hero h1 i {
+  display: inline-block;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* Trigger animations on load */
+body.loaded .hero,
+body.loaded .search-card,
+body.loaded .info-bar,
+body.loaded .footer,
+body.loaded .meal {
+  opacity: 1;
+}
+
